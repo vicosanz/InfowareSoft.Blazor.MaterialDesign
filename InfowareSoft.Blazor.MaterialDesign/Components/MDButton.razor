@@ -1,0 +1,25 @@
+﻿@inherits MDButtonBase
+
+<button class="@ClassMapper.Class" @ref="Ref" @onclick="OnClickHandler" data-mdc-dialog-action="@DialogAction" @attributes="@Attributes">
+    <div class="mdc-button__ripple"></div>
+    @if (Icon != null)
+    {
+        <i class="material-icons mdc-button__icon" aria-hidden="true">@Icon</i>
+    }
+    @if (this.Label != null)
+    {
+        <span class="mdc-button__label">@Label</span>
+    }
+    @ChildContent
+    @if (TrailingIcon != null)
+    {
+        <i class="material-icons mdc-button__icon" aria-hidden="true">@TrailingIcon</i>
+    }
+    @if (TouchWrapper != null)
+    {
+        <div class="mdc-button__touch"></div>
+    }
+</button>
+
+@code {
+}

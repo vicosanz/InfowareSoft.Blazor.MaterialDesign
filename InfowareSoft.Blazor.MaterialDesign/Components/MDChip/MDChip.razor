@@ -1,0 +1,65 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+@implements IChip
+
+<div class="@ClassMapper.Class" role="row" @ref="Ref" @attributes="@Attributes">
+    <div class="mdc-chip__ripple"></div>
+    @if (Icon != null)
+    {
+        <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">@Icon</i>
+    }
+    @if (Mode == MDChipMode.Filter)
+    {
+        <span class="mdc-chip__checkmark">
+            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black"
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+            </svg>
+        </span>
+    }
+
+    <span role="gridcell">
+        @if (Text != null)
+        {
+            <span role=@Mode.GetRolName() aria-checked="@(Mode == MDChipMode.Filter ? InitialSelected.ToString() : null)" tabindex="0" class="mdc-chip__text">@Text</span>
+        }
+        @ChildContent
+    </span>
+    @if (TrailingIcon != null)
+    {
+        <span role="gridcell">
+            <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing" tabindex="-1" role="button">@TrailingIcon</i>
+        </span>
+    }
+    @if (TouchWrapper != null)
+    {
+        <div class="mdc-chip__touch"></div>
+    }
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-chip")
+            .If(() => TouchWrapper != null, "mdc-chip--touch")
+            .If(() => InitialSelected, "mdc-chip--selected");
+    }
+
+    [CascadingParameter(Name = "MDTouchWrapper")] public MDTouchWrapper TouchWrapper { get; set; }
+    [CascadingParameter(Name = "Parent")] public MDChipSet ContainerChipSet { get; set; }
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string Icon { get; set; }
+    [Parameter] public string TrailingIcon { get; set; }
+    [Parameter] public MDChipMode Mode { get; set; } = MDChipMode.Default;
+
+    [Parameter] public bool InitialSelected { get; set; }
+    
+    public enum MDChipMode
+    {
+        [Html(rolName: "button")]
+        Default,
+        [Html(rolName: "checkbox")]
+        Filter
+    }
+}

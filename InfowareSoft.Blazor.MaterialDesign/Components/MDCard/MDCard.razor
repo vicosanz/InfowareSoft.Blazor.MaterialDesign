@@ -1,0 +1,32 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    @ChildContent
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-card")
+            .Style(()=>Style.GetCssName());
+    }
+
+    [Parameter] public MDCardStyle Style { get; set; } = MDCardStyle.Default;
+
+    [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    protected void OnClickHandler(MouseEventArgs ev)
+    {
+        OnClick.InvokeAsync(ev);
+    }
+
+    public enum MDCardStyle
+    {
+        [Html]
+        Default,
+        [Html("mdc-card--outlined")]
+        Outlined
+    }
+}

@@ -1,0 +1,65 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+@implements IFormField
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    <input type="radio" class="mdc-radio__native-control" id="@Id" aria-labelledby="@LabelledBy"
+           name="@Name"
+           disabled="@DisabledInput" 
+           value="@Value"
+           checked="@Checked" 
+           @onchange="OnChangeHandler" />
+
+    <div class="mdc-radio__background">
+        <div class="mdc-radio__outer-circle"></div>
+        <div class="mdc-radio__inner-circle"></div>
+    </div>
+
+    <div class="mdc-radio__ripple"></div>
+</div>
+@if (Label!= null || ChildContent != null) 
+{ 
+    <label for="@Id">@Label@ChildContent</label>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-radio")
+            .If(() => Disabled, "mdc-radio--disabled")
+            .If(() => TouchWrapper != null, "mdc-radio--touch");
+    }
+
+    [CascadingParameter(Name = "MDTouchWrapper")] public MDTouchWrapper TouchWrapper { get; set; }
+    [CascadingParameter(Name = "MDFormField")] public MDFormField ContainerFormField { get; set; }
+
+    [Parameter] public string LabelledBy { get; set; }
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Name { get; set; }
+    [Parameter] public string Value { get; set; }
+    [Parameter] public bool Checked { get; set; } = false;
+
+    [Parameter] public bool Disabled { get; set; }
+    private string DisabledInput => Disabled ? "disabled" : null;
+
+    [Parameter] public Action<bool> OnCheckedChange { get; set; }
+    protected void OnChangeHandler(ChangeEventArgs ev)
+    {
+        Console.WriteLine(ev.Value);
+        Checked = ev.Value.ToString() == "on";
+        if (OnCheckedChange != null)
+        {
+            OnCheckedChange.Invoke(Checked);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInvokeAsync<object>("mdcjs.mdRadio.init", Ref, ContainerFormField?.Ref);
+        }
+    }
+
+}

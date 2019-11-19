@@ -1,0 +1,23 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<MDButton class="@ClassMapper.Class" Label="@Label" OnClick="@OnClickHandler" DialogAction="@DialogAction" @attributes="@Attributes">
+    @ChildContent
+</MDButton>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-dialog__button");
+    }
+
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string DialogAction { get; set; }
+    [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    protected void OnClickHandler(MouseEventArgs ev)
+    {
+        OnClick.InvokeAsync(ev);
+    }
+}

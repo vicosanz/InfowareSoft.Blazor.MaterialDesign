@@ -1,0 +1,49 @@
+﻿@inherits DOMComponent
+
+<button class="@ClassMapper.Class" @ref="Ref" aria-label="@(Style == MDFabStyle.Extended ? null: Label)" @attributes="@Attributes">
+    <div class="mdc-fab__ripple"></div>
+    @ChildContent
+    @if (Icon != null)
+    {
+        <i class="material-icons mdc-fab__icon" aria-hidden="true">@Icon</i>
+    }
+    @if (this.Label != null && Style == MDFabStyle.Extended)
+    {
+        <span class="mdc-fab__label">@Label</span>
+    }
+</button>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-fab")
+            .Style(() => Style.GetCssName())
+            .If(() => Exited, "mdc-fab--exited");
+    }
+
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Icon { get; set; }
+    [Parameter] public bool Exited { get; set; }
+
+    [Parameter] public MDFabStyle Style { get; set; } = MDFabStyle.Default;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInvokeAsync<object>("mdcjs.mdFab.init", Ref);
+        }
+    }
+
+    public enum MDFabStyle
+    {
+        [Html]
+        Default,
+        [Html("mdc-fab--mini")]
+        Mini,
+        [Html("mdc-fab--extended")]
+        Extended
+    }
+
+}

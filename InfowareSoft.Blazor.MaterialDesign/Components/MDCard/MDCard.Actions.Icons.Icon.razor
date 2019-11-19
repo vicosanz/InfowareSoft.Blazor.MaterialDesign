@@ -1,0 +1,23 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<MDIconButton Class="@ClassMapper.Class" Title="@Title" OnClick="@OnClickHandler" CompactSyntax="true" Icon="@Icon" @attributes="@Attributes">
+    @ChildContent
+</MDIconButton>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-card__action mdc-card__action--icon");
+    }
+
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Icon { get; set; }
+    [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    protected void OnClickHandler(MouseEventArgs ev)
+    {
+        OnClick.InvokeAsync(ev);
+    }
+}

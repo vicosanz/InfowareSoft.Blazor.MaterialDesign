@@ -1,0 +1,17 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<MDCheckBox Class="@ClassMapper.Class" Value="@Value" LabelledBy="@LabelledBy" @attributes="@Attributes">
+    @ChildContent
+</MDCheckBox>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-data-table__row-checkbox");
+    }
+
+    [Parameter] public bool? Value { get; set; } = false;
+    [Parameter] public string LabelledBy { get; set; }
+}

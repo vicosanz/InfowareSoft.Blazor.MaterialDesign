@@ -1,0 +1,27 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<CascadingValue Value=this Name="MDFormField">
+    <div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+        @ChildContent
+    </div>
+</CascadingValue>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-form-field")
+            .Style(() => Style.GetCssName());
+    }
+
+    [Parameter] public MDFormFieldStyle Style { get; set; } = MDFormFieldStyle.Default;
+
+    public enum MDFormFieldStyle
+    {
+        [Html]
+        Default,
+        [Html("mdc-form-field--align-end")]
+        AlignEnd
+    }
+}

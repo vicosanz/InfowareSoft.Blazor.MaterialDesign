@@ -1,0 +1,30 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" @ref="Ref" style="@BackgroundImageStyle" @attributes="@Attributes">
+    @ChildContent
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-card__media")
+            .Style(()=>Style.GetCssName());
+    }
+
+    [Parameter] public MDCardMediaStyle Style { get; set; } = MDCardMediaStyle.Default;
+    [Parameter] public string BackgroundImage { get; set; }
+
+    private string BackgroundImageStyle => $"background-image: url('{BackgroundImage}');";
+
+    public enum MDCardMediaStyle
+    {
+        [Html]
+        Default,
+        [Html("mdc-card__media--square")]
+        Square,
+        [Html("mdc-card__media--16-9")]
+        Aspect16_9,
+    }
+}

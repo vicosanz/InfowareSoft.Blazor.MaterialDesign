@@ -1,0 +1,14 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<footer class="@ClassMapper.Class" @attributes="@Attributes">
+    @ChildContent
+</footer>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-dialog__actions");
+    }
+}

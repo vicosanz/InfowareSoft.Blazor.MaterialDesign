@@ -1,0 +1,21 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits MDDialogBase
+
+<div class="@ClassMapper.Class" @ref="Ref"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="@LabelledBy"
+     aria-describedby="@DescribedBy"
+     @attributes="@Attributes">
+
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+            <h2 class="mdc-dialog__title" id="@Id">@Title</h2>
+            <div class="mdc-dialog__content">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+</div>

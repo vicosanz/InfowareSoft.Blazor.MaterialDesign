@@ -1,0 +1,26 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<th class="@ClassMapper.Class" id="@Id" @attributes="@Attributes">@ChildContent</th>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-data-table__cell")
+            .Style(() => Style.GetCssName());
+    }
+
+    [Parameter] public MDDataTablerCellStyle Style { get; set; } = MDDataTablerCellStyle.Default;
+
+    public enum MDDataTablerCellStyle
+    {
+        [Html]
+        Default,
+        [Html("mdc-data-table__cell--checkbox")]
+        CheckBox,
+        [Html("mdc-data-table__cell--numeric")]
+        Numeric,
+    }
+
+}

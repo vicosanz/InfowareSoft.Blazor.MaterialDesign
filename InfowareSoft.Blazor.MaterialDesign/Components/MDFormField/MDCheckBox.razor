@@ -1,0 +1,70 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+@implements IFormField
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    <input type="checkbox" class="mdc-checkbox__native-control" id="@Id" aria-labelledby="@LabelledBy"
+           disabled="@DisabledInput"
+           checked="@Value"
+           @onchange="OnChangeHandler" />
+
+    <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark"
+             viewBox="0 0 24 24">
+            <path class="mdc-checkbox__checkmark-path"
+                  fill="none"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
+    </div>
+
+    <div class="mdc-checkbox__ripple"></div>
+    @if (TouchWrapper != null)
+    {
+        <div class="mdc-button__touch"></div>
+    }
+</div>
+@if (Label != null || ChildContent != null)
+{
+    <label for="@Id">@Label@ChildContent</label>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-checkbox")
+            .If(() => Disabled, "mdc-checkbox--disabled")
+            .If(() => TouchWrapper != null, "mdc-checkbox--touch");
+    }
+
+    [CascadingParameter(Name = "MDTouchWrapper")] public MDTouchWrapper TouchWrapper { get; set; }
+    [CascadingParameter(Name = "MDFormField")] public MDFormField ContainerFormField { get; set; }
+
+    [Parameter] public string LabelledBy { get; set; }
+    [Parameter] public string Label { get; set; }
+    [Parameter] public bool? Value { get; set; } = false;
+    private string ValueIndeterminate => !Value.HasValue ? "true" : null;
+
+    [Parameter] public bool Disabled { get; set; }
+    private string DisabledInput => Disabled ? "disabled" : null;
+
+    [Parameter] public Action<bool> OnCheckedChange { get; set; }
+    protected void OnChangeHandler(ChangeEventArgs ev)
+    {
+        Value = (bool)ev.Value;
+        if (OnCheckedChange != null)
+        {
+            OnCheckedChange.Invoke(Value.Value);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInvokeAsync<object>("mdcjs.mdCheckBox.init", Ref, ContainerFormField?.Ref, !Value.HasValue);
+        }
+    }
+
+}

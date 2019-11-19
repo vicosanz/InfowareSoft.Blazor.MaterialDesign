@@ -1,0 +1,29 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" tabindex="0" @ref="Ref" @onclick="OnClickHandler" @attributes="@Attributes">
+    @ChildContent
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-card__primary-action");
+    }
+
+    [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    protected void OnClickHandler(MouseEventArgs ev)
+    {
+        OnClick.InvokeAsync(ev);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInvokeAsync<object>("mdcjs.mdCard.initPrimaryAction", Ref);
+        }
+    }
+}

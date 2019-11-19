@@ -1,0 +1,40 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<CascadingValue Value=this Name="Parent">
+    <div class="@ClassMapper.Class" role="grid" @ref="Ref" @attributes="@Attributes">
+        @ChildContent
+    </div>
+</CascadingValue>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-chip-set")
+            .Style(() => Mode.GetCssName());
+    }
+
+    [Parameter] public MDChipSetMode Mode { get; set; } = MDChipSetMode.Default;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInvokeAsync<object>("mdcjs.mdChipSet.init", Ref);
+        }
+    }
+
+    public enum MDChipSetMode
+    {
+        [Html]
+        Default,
+        [Html("mdc-chip-set--choice")]
+        Choose,
+        [Html("mdc-chip-set--filter")]
+        Filter,
+        [Html("mdc-chip-set--input")]
+        Input
+    }
+
+}

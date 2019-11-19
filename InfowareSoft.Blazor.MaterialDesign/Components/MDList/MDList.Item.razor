@@ -1,0 +1,37 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits MDListItemBase
+
+    <li class="@ClassMapper.Class" role="@ClassMapperRole.Class" tabindex="@TabIndex" @ref="Ref" @attributes="@Attributes">
+        @if (IsListBox())
+        {
+            <span class="mdc-list-item__text">
+                @if (IsTwoLine())
+                {
+                    <span class="mdc-list-item__primary-text">@Text</span>
+                    <span class="mdc-list-item__secondary-text">@SecondaryText</span>
+                }
+                else
+                {
+                    @Text
+                }
+            </span>
+        }
+        else if (IsRadio())
+        {
+            <span class="mdc-list-item__graphic">
+                <MDRadio Id="@Id" Name="@Name" Value="@Value"></MDRadio>
+            </span>
+            <label class="mdc-list-item__text" for="@Id">@Text</label>
+        }
+        else if (IsCheckBox())
+        {
+            <span class="mdc-list-item__graphic">
+                <MDCheckBox Id="@Id" Name="@Name"></MDCheckBox>
+            </span>
+            <label class="mdc-list-item__text" for="@Id">@Text</label>
+        }
+        @ChildContent
+    </li>
+
+@code {
+}

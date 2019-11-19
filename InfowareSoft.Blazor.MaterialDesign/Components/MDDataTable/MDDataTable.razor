@@ -1,0 +1,26 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    <table class="mdc-data-table__table" aria-label="@Label">
+        @ChildContent
+    </table>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-data-table");
+    }
+
+    [Parameter] public string Label { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInvokeAsync<object> ("mdcjs.mdDataTable.init", Ref);
+        }
+    }
+}

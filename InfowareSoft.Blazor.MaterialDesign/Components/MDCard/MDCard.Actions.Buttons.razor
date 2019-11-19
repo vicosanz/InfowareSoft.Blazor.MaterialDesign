@@ -1,0 +1,14 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    @ChildContent
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-card__action-buttons");
+    }
+}

@@ -1,0 +1,17 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<thead>
+    <tr class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+        @ChildContent
+    </tr>
+</thead>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-data-table__header-row");
+    }
+
+}

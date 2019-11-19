@@ -1,0 +1,15 @@
+﻿@inherits DOMComponent
+
+<CascadingValue Value=this Name="MDTouchWrapper">
+    <div class="@ClassMapper.Class" @attributes="@Attributes">
+        @ChildContent
+    </div>
+</CascadingValue>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Base("mdc-touch-target-wrapper");
+    }
+}
