@@ -2,18 +2,18 @@
 
 <button class="@ClassMapper.Class" @ref="Ref" @onclick="OnClickHandler" data-mdc-dialog-action="@DialogAction" @attributes="@Attributes">
     <div class="mdc-button__ripple"></div>
-    @if (Icon != null)
+    @if (Icon.HasValue)
     {
-        <i class="material-icons mdc-button__icon" aria-hidden="true">@Icon</i>
+        <MDIcon Class="mdc-button__icon" aria-hidden="true" Icon="@Icon.Value"></MDIcon>
     }
     @if (this.Label != null)
     {
         <span class="mdc-button__label">@Label</span>
     }
     @ChildContent
-    @if (TrailingIcon != null)
+    @if (TrailingIcon.HasValue)
     {
-        <i class="material-icons mdc-button__icon" aria-hidden="true">@TrailingIcon</i>
+        <MDIcon Class="mdc-button__icon" aria-hidden="true" Icon="@TrailingIcon.Value"></MDIcon>
     }
     @if (TouchWrapper != null)
     {

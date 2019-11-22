@@ -8,7 +8,7 @@
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-data-table__cell")
-            .Style(() => Style.GetCssName());
+            .Style(() => Style.GetName());
     }
 
     [Parameter] public MDDataTablerCellStyle Style { get; set; } = MDDataTablerCellStyle.Default;

@@ -1,12 +1,11 @@
 ﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
-@inherits MDRadioBase
+@inherits MDRadioUnmanagedBase
 
 <div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
-    <input class="mdc-radio__native-control" type="radio" id="@Id" 
+    <input class="mdc-radio__native-control" type="radio" id="@Id"
            name="@Name"
-           @onchange="OnChangeHandler"
            aria-labelledby="@LabelledBy"
-           disabled="@DisabledInput" 
+           disabled="@DisabledInput"
            value="@Value"
            checked="@Checked" />
 
@@ -14,11 +13,9 @@
         <div class="mdc-radio__outer-circle"></div>
         <div class="mdc-radio__inner-circle"></div>
     </div>
-
-    <div class="mdc-radio__ripple"></div>
 </div>
-@if (Label!= null || ChildContent != null) 
-{ 
+@if (Label != null || ChildContent != null)
+{
     <label for="@Id">@Label@ChildContent</label>
 }
 

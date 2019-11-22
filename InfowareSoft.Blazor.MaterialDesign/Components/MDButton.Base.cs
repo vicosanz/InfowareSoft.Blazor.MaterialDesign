@@ -14,14 +14,14 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         {
             base.OnInitialized();
             ClassMapper.Base("mdc-button")
-                .Style(() => Style.GetCssName())
+                .Style(() => Style.GetName())
                 .If(() => Disabled, "Disabled");
         }
 
         [CascadingParameter(Name = "MDTouchWrapper")] public MDTouchWrapper TouchWrapper { get; set; }
         [Parameter] public string Label { get; set; }
-        [Parameter] public string Icon { get; set; }
-        [Parameter] public string TrailingIcon { get; set; }
+        [Parameter] public MDIconEnum? Icon { get; set; }
+        [Parameter] public MDIconEnum? TrailingIcon { get; set; }
 
         [Parameter] public bool Disabled { get; set; }
         protected string DisabledCss => Disabled ? "Disabled" : null;

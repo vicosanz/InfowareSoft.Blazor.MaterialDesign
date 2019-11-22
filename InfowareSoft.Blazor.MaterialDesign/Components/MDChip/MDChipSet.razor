@@ -1,7 +1,7 @@
 ﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
 @inherits DOMComponent
 
-<CascadingValue Value=this Name="Parent">
+<CascadingValue Value=this Name="ChipSet">
     <div class="@ClassMapper.Class" role="grid" @ref="Ref" @attributes="@Attributes">
         @ChildContent
     </div>
@@ -12,7 +12,7 @@
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-chip-set")
-            .Style(() => Mode.GetCssName());
+            .Style(() => Mode.GetName());
     }
 
     [Parameter] public MDChipSetMode Mode { get; set; } = MDChipSetMode.Default;

@@ -19,11 +19,15 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
                 .If(() => IsRadio(), "radio")
                 .If(() => IsCheckBox(), "checkbox");
 
-            if (!List.ListItems.Any())
+            if (List != null)
             {
-                TabIndex = "0";
+                Name = List.Name;
+                if (!List.ListItems.Any())
+                {
+                    TabIndex = "0";
+                }
+                List.ListItems.Add(this);
             }
-            List.ListItems.Add(this);
         }
 
         protected bool IsListBox() => List?.Role == MDListBase.MDListRole.ListBox;
@@ -39,11 +43,13 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
 
         protected ClassMapper ClassMapperRole = new ClassMapper();
 
-        [Parameter] public string Name { get; set; }
+        protected string Name { get; set; } = "Name" + Guid.NewGuid().ToString();
+        [Parameter] public MDIconEnum? Icon { get; set; }
+        [Parameter] public MDIconEnum? TrailingIcon { get; set; }
+
         [Parameter] public string Text { get; set; }
         [Parameter] public string SecondaryText { get; set; }
         [Parameter] public string TabIndex { get; set; }
         [Parameter] public string Value { get; set; }
-
     }
 }

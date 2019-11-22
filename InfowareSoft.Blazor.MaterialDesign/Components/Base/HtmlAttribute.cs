@@ -6,28 +6,22 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components.Base
 {
     public class HtmlAttribute : Attribute
     {
-        public HtmlAttribute(string className = null, string rolName = null)
+        public HtmlAttribute(string name = null)
         {
-            ClassName = className;
-            RolName = rolName;
+            Name = name;
         }
 
-        public string ClassName { get; }
-        public string RolName { get; }
+        public string Name { get; }
     }
 
     public static class HtmlAttributeHelper
     {
-        public static string GetCssName<T>(this T enumValue) where T : struct
+        public static string GetName<T>(this T enumValue) where T : struct
         {
-            return enumValue.GetName()?.ClassName;
-        }
-        public static string GetRolName<T>(this T enumValue) where T : struct
-        {
-            return enumValue.GetName()?.RolName;
+            return enumValue.GetTypeName()?.Name;
         }
 
-        public static HtmlAttribute GetName<T>(this T enumValue) where T : struct
+        public static HtmlAttribute GetTypeName<T>(this T enumValue) where T : struct
         {
             Type type = enumValue.GetType();
             if (!type.IsEnum)

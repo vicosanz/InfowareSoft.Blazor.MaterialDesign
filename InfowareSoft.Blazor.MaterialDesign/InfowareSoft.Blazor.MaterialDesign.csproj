@@ -8,6 +8,12 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Description>Material Design</Description>
         <Copyright>Victor Sanchez</Copyright>
+        <PackageProjectUrl>https://github.com/vicosanz/InfowareSoft.Blazor.MaterialDesign</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/vicosanz/InfowareSoft.Blazor.MaterialDesign</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>blazor blazor-client material-design</PackageTags>
+        <PackageReleaseNotes>Material Design for Web packed in order to use into Blazor Web app</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>

@@ -3,9 +3,9 @@
 <button class="@ClassMapper.Class" @ref="Ref" aria-label="@(Style == MDFabStyle.Extended ? null: Label)" @attributes="@Attributes">
     <div class="mdc-fab__ripple"></div>
     @ChildContent
-    @if (Icon != null)
+    @if (Icon.HasValue)
     {
-        <i class="material-icons mdc-fab__icon" aria-hidden="true">@Icon</i>
+        <MDIcon Class="mdc-fab__icon" aria-hidden="true" Icon="@Icon.Value"></MDIcon>
     }
     @if (this.Label != null && Style == MDFabStyle.Extended)
     {
@@ -18,12 +18,12 @@
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-fab")
-            .Style(() => Style.GetCssName())
+            .Style(() => Style.GetName())
             .If(() => Exited, "mdc-fab--exited");
     }
 
     [Parameter] public string Label { get; set; }
-    [Parameter] public string Icon { get; set; }
+    [Parameter] public MDIconEnum? Icon { get; set; }
     [Parameter] public bool Exited { get; set; }
 
     [Parameter] public MDFabStyle Style { get; set; } = MDFabStyle.Default;

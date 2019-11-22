@@ -4,11 +4,11 @@
 
 <div class="@ClassMapper.Class" role="row" @ref="Ref" @attributes="@Attributes">
     <div class="mdc-chip__ripple"></div>
-    @if (Icon != null)
+    @if (Icon.HasValue)
     {
-        <i class="material-icons mdc-chip__icon mdc-chip__icon--leading">@Icon</i>
+        <MDIcon Class="mdc-chip__icon mdc-chip__icon--leading" Icon="@Icon.Value"></MDIcon>
     }
-    @if (Mode == MDChipMode.Filter)
+    @if (IsFilter)
     {
         <span class="mdc-chip__checkmark">
             <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
@@ -21,14 +21,14 @@
     <span role="gridcell">
         @if (Text != null)
         {
-            <span role=@Mode.GetRolName() aria-checked="@(Mode == MDChipMode.Filter ? InitialSelected.ToString() : null)" tabindex="0" class="mdc-chip__text">@Text</span>
+            <span role="Role" aria-checked="@(IsFilter ? InitialSelected.ToString() : null)" tabindex="0" class="mdc-chip__text">@Text</span>
         }
         @ChildContent
     </span>
-    @if (TrailingIcon != null)
+    @if (TrailingIcon.HasValue)
     {
         <span role="gridcell">
-            <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing" tabindex="-1" role="button">@TrailingIcon</i>
+            <MDIcon Class="mdc-chip__icon mdc-chip__icon--trailing" tabindex="-1" role="button" Icon="@TrailingIcon.Value"></MDIcon>
         </span>
     }
     @if (TouchWrapper != null)
@@ -47,19 +47,13 @@
     }
 
     [CascadingParameter(Name = "MDTouchWrapper")] public MDTouchWrapper TouchWrapper { get; set; }
-    [CascadingParameter(Name = "Parent")] public MDChipSet ContainerChipSet { get; set; }
+    [CascadingParameter(Name = "ChipSet")] public MDChipSet ContainerChipSet { get; set; }
     [Parameter] public string Text { get; set; }
-    [Parameter] public string Icon { get; set; }
-    [Parameter] public string TrailingIcon { get; set; }
-    [Parameter] public MDChipMode Mode { get; set; } = MDChipMode.Default;
+    [Parameter] public MDIconEnum? Icon { get; set; }
+    [Parameter] public MDIconEnum? TrailingIcon { get; set; }
 
     [Parameter] public bool InitialSelected { get; set; }
-    
-    public enum MDChipMode
-    {
-        [Html(rolName: "button")]
-        Default,
-        [Html(rolName: "checkbox")]
-        Filter
-    }
+
+    private bool IsFilter => ContainerChipSet != null && ContainerChipSet.Mode == MDChipSet.MDChipSetMode.Filter;
+    private string Role => IsFilter ? "checkbox" : "button";
 }

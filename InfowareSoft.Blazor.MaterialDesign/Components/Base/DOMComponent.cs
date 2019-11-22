@@ -12,9 +12,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components.Base
 
         [Parameter(CaptureUnmatchedValues = true)]
         public Dictionary<string, object> Attributes { get; set; }
-
-        private ElementReference _ref;
-        public ElementReference Ref { get => _ref; set => _ref = value; }
+        public ElementReference Ref { get; set; }
 
         protected ClassMapper ClassMapper { get; } = new ClassMapper();
 

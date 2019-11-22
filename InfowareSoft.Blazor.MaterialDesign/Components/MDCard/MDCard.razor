@@ -10,7 +10,7 @@
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-card")
-            .Style(()=>Style.GetCssName());
+            .Style(()=>Style.GetName());
     }
 
     [Parameter] public MDCardStyle Style { get; set; } = MDCardStyle.Default;

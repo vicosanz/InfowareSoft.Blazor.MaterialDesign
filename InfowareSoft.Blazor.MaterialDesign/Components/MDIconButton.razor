@@ -10,13 +10,13 @@
     }
     else
     {
-        @if (Icon != null && !CompactSyntax)
+        @if (Icon.HasValue && !CompactSyntax)
         {
-            <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">@Icon</i>
+            <MDIcon Class="mdc-icon-button__icon mdc-icon-button__icon--on" Icon="@Icon.Value"></MDIcon>
         }
-        @if (IconOff != null)
+        @if (IconOff.HasValue)
         {
-            <i class="material-icons mdc-icon-button__icon">@IconOff</i>
+            <MDIcon Class="mdc-icon-button__icon" Icon="@IconOff.Value"></MDIcon>
         }
         @ChildContent
     }
@@ -36,8 +36,8 @@
     [Parameter] public bool CompactSyntax { get; set; }
     [Parameter] public string Label { get; set; }
     [Parameter] public string Title { get; set; }
-    [Parameter] public string Icon { get; set; }
-    [Parameter] public string IconOff { get; set; }
+    [Parameter] public MDIconEnum? Icon { get; set; }
+    [Parameter] public MDIconEnum? IconOff { get; set; }
     [Parameter] public bool Disabled { get; set; }
 
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }

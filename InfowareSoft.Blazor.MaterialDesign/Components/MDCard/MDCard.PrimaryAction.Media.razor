@@ -10,7 +10,7 @@
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-card__media")
-            .Style(()=>Style.GetCssName());
+            .Style(()=>Style.GetName());
     }
 
     [Parameter] public MDCardMediaStyle Style { get; set; } = MDCardMediaStyle.Default;

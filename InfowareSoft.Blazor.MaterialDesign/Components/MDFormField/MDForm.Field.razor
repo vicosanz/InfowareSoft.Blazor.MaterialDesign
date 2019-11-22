@@ -12,7 +12,7 @@
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-form-field")
-            .Style(() => Style.GetCssName());
+            .Style(() => Style.GetName());
     }
 
     [Parameter] public MDFormFieldStyle Style { get; set; } = MDFormFieldStyle.Default;
