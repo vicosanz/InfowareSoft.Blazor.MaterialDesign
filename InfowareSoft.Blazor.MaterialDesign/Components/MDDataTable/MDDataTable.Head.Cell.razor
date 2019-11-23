@@ -12,15 +12,4 @@
     }
 
     [Parameter] public MDDataTablerHeaderCellStyle Style { get; set; } = MDDataTablerHeaderCellStyle.Default;
-
-    public enum MDDataTablerHeaderCellStyle
-    {
-        [Html]
-        Default,
-        [Html("mdc-data-table__header-cell--checkbox")]
-        CheckBox,
-        [Html("mdc-data-table__header-cell--numeric")]
-        Numeric,
-    }
-
 }

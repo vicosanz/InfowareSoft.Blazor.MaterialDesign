@@ -1,4 +1,5 @@
-﻿@inherits DOMComponent
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
 
 <button class="@ClassMapper.Class" @ref="Ref" aria-label="@(Style == MDFabStyle.Extended ? null: Label)" @attributes="@Attributes">
     <div class="mdc-fab__ripple"></div>
@@ -35,15 +36,4 @@
             await JsInvokeAsync<object>("mdcjs.mdFab.init", Ref);
         }
     }
-
-    public enum MDFabStyle
-    {
-        [Html]
-        Default,
-        [Html("mdc-fab--mini")]
-        Mini,
-        [Html("mdc-fab--extended")]
-        Extended
-    }
-
 }

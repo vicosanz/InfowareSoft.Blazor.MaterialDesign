@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public class MDListBase : DOMComponent
+    public partial class MDListBase : DOMComponent
     {
         protected override void OnInitialized()
         {
@@ -20,6 +20,24 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         [Parameter] public string Name { get; set; } = "Name" + Guid.NewGuid().ToString();
         [Parameter] public MDListStyle Style { get; set; } = MDListStyle.Default;
         [Parameter] public MDListRole Role { get; set; } = MDListRole.ListBox;
+        [Parameter] public MDListAs Tag { get; set; } = MDListAs.ul;
+
+        private bool mWrapFocus = false;
+        [Parameter]
+        public bool WrapFocus
+        {
+            get => mWrapFocus;
+            set
+            {
+                mWrapFocus = value;
+
+                WhenRenderFinished(async () =>
+                {
+                    await JsInvokeAsync<object>("mdcjs.mdList.setWrapFocus", Ref, mWrapFocus);
+                });
+            }
+        }
+
         private int mSelectedIndex = -1;
         [Parameter]
         public int SelectedIndex
@@ -78,23 +96,6 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
                 await JsInvokeAsync<object>("mdcjs.mdList.onActionItem", Ref, DotNetObjectRef);
             }
             await base.OnAfterRenderAsync(firstRender);
-        }
-
-        public enum MDListStyle
-        {
-            [Html]
-            Default,
-            [Html("mdc-list--two-line")]
-            TwoLine
-        }
-        public enum MDListRole
-        {
-            [Html("listbox")]
-            ListBox,
-            [Html("radiogroup")]
-            RadioGroup,
-            [Html("group")]
-            CheckBox
         }
     }
 }

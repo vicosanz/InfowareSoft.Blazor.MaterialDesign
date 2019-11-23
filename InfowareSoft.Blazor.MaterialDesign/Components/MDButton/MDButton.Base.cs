@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public class MDButtonBase: DOMComponent
+    public partial class MDButtonBase: DOMComponent
     {
         protected override void OnInitialized()
         {
@@ -43,18 +43,6 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
             {
                 await JsInvokeAsync<object>("mdcjs.mdButton.init", Ref);
             }
-        }
-
-        public enum MDButtonStyle
-        {
-            [Html]
-            Default,
-            [Html("mdc-button--raised")]
-            Raised,
-            [Html("mdc-button--unelevated")]
-            Unelevated,
-            [Html("mdc-button--outlined")]
-            Outlined
         }
 
     }

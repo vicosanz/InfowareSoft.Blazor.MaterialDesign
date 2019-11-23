@@ -1,7 +1,8 @@
-﻿@inherits DOMComponent
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
 
 <CascadingValue Value=this Name="MDTouchWrapper">
-    <div class="@ClassMapper.Class" @attributes="@Attributes">
+    <div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
         @ChildContent
     </div>
 </CascadingValue>

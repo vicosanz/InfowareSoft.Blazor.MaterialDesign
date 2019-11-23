@@ -19,6 +19,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         [Parameter] public string Title { get; set; }
         [Parameter] public string LabelledBy { get; set; }
         [Parameter] public string DescribedBy { get; set; }
+        [Parameter] public Action<bool> OnDialogOpenChange { get; set; }
 
         private bool mIsOpen = false;
         [Parameter]
@@ -71,7 +72,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         {
             mIsOpen = false;
             await IsOpenChanged.InvokeAsync(false);
-            this.StateHasChanged();
+            OnDialogOpenChange?.Invoke(mIsOpen);
         }
 
         [JSInvokable]
@@ -79,7 +80,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         {
             mIsOpen = true;
             await IsOpenChanged.InvokeAsync(true);
-            this.StateHasChanged();
+            OnDialogOpenChange?.Invoke(mIsOpen);
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

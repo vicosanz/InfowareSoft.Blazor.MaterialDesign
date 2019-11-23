@@ -1,151 +1,163 @@
 ﻿@page "/"
 
 <h1>Hello, world!</h1>
+<MDDrawer>
+    <MDDrawer_Content>
+        <MDList Tag="MDListAs.nav" WrapFocus="true">
+            <MDList_Item href="#" aria-current="page" Text="Inbox" Icon=" MDIconEnum.inbox">
+            </MDList_Item>
+            <MDList_Item href="#" Text="Outgoind" Icon=" MDIconEnum.send">
+            </MDList_Item>
+            <MDList_Item href="#" Text="Drafts" Icon=" MDIconEnum.drafts">
+            </MDList_Item>
+        </MDList>
+    </MDDrawer_Content>
+</MDDrawer>
 
-<MDList SelectedIndex ="1">
+<MDList SelectedIndex="1">
     <MDList_Item Text="Simple item 1"></MDList_Item>
     <MDList_Item Text="Simple item 1"></MDList_Item>
     <MDList_Item Text="Simple item 1"></MDList_Item>
 </MDList>
-<MDList Style=" MDListBase.MDListStyle.TwoLine">
+<MDList Style=" MDListStyle.TwoLine">
     <MDList_Item Icon=" MDIconEnum.folder" Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Icon=" MDIconEnum.folder" Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Icon=" MDIconEnum.folder" Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
 </MDList>
-<MDList Style=" MDListBase.MDListStyle.Default" Role=" MDListBase.MDListRole.RadioGroup" Name="Var1" SelectedIndex ="1">
+<MDList Style=" MDListStyle.Default" Role=" MDListRole.RadioGroup" Name="Var1" SelectedIndex="1">
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
 </MDList>
-<MDList Style=" MDListBase.MDListStyle.Default" Role="MDListBase.MDListRole.CheckBox" SelectedIndexes="new List<int>() { 1, 2 }.ToArray()">
+<MDList Style=" MDListStyle.Default" Role="MDListRole.CheckBox" SelectedIndexes="new List<int>() { 1, 2 }.ToArray()">
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
 </MDList>
 
-   <MDDialog Labelledby="my-dialog-title" DescribedBy="my-dialog-content" Title="Dialog Title" Id="my-dialog-title" IsOpen="@DialogIsOpen">
-        <MDDialog_Content Id="my-dialog-content">
-            Dialog body text goes here.
-        </MDDialog_Content>
-        <MDDialog_Actions>
-            <MDDialog_Actions_Button DialogAction="no" Label="No">
-            </MDDialog_Actions_Button>
-            <MDDialog_Actions_Button DialogAction="yes" Label="Yes">
-            </MDDialog_Actions_Button>
-        </MDDialog_Actions>
-    </MDDialog>
+<MDDialog Labelledby="my-dialog-title" DescribedBy="my-dialog-content" Title="Dialog Title" Id="my-dialog-title" IsOpen="@DialogIsOpen" OnDialogOpenChange="OnDialogOpenChange">
+    <MDDialog_Content Id="my-dialog-content">
+        Dialog body text goes here.
+    </MDDialog_Content>
+    <MDDialog_Actions>
+        <MDDialog_Actions_Button DialogAction="no" Label="No">
+        </MDDialog_Actions_Button>
+        <MDDialog_Actions_Button DialogAction="yes" Label="Yes">
+        </MDDialog_Actions_Button>
+    </MDDialog_Actions>
+</MDDialog>
 
-    <MDForm_Field>
-        <MDCheckBox Label="Open Dialog" Id="id1" OnCheckedChange="OpenDialog"></MDCheckBox>
-    </MDForm_Field>
-    <MDForm_Field>
-        <MDCheckBox Label="Check here" Id="id2" Disabled="true"></MDCheckBox>
-    </MDForm_Field>
-    <MDForm_Field>
-        <MDCheckBox Label="Check here" Id="id3" Value="true"></MDCheckBox>
-    </MDForm_Field>
-    <MDForm_Field>
-        <MDCheckBox Label="Check here" Id="id4" Value="false"></MDCheckBox>
-    </MDForm_Field>
-    <MDForm_Field>
-        <MDCheckBox Label="Check here" Id="id5" Value="null"></MDCheckBox>
-    </MDForm_Field>
-    <MDButton Label="Toogle" Class="nueva" Icon="MDIconEnum.favorite" TrailingIcon=" MDIconEnum.favorite" Style="MDButton.MDButtonStyle.Raised" @onclick="ExitedFab"></MDButton>
-    <MDButton Label="Hello world" TrailingIcon="MDIconEnum.favorite" Style="MDButton.MDButtonStyle.Outlined"></MDButton>
-    <MDFab Label="Hola" Style="MDFab.MDFabStyle.Extended" Exited="@Exited" Icon="MDIconEnum.favorite"></MDFab>
-    <MDFab Label="Hola" Style="MDFab.MDFabStyle.Default" Icon="MDIconEnum.favorite"></MDFab>
-    <MDFab Label="Hola" Style="MDFab.MDFabStyle.Mini" Icon="MDIconEnum.favorite"></MDFab>
+<MDForm_Field>
+    <MDCheckBox Label="Open Dialog" Id="id1" OnCheckedChange="OpenDialog" Value="@DialogIsOpen"></MDCheckBox>
+</MDForm_Field>
+<MDForm_Field>
+    <MDCheckBox Label="Check here" Id="id2" Disabled="true"></MDCheckBox>
+</MDForm_Field>
+<MDForm_Field>
+    <MDCheckBox Label="Check here" Id="id3" Value="true"></MDCheckBox>
+</MDForm_Field>
+<MDForm_Field>
+    <MDCheckBox Label="Check here" Id="id4" Value="false"></MDCheckBox>
+</MDForm_Field>
+<MDForm_Field>
+    <MDCheckBox Label="Check here" Id="id5" Value="null"></MDCheckBox>
+</MDForm_Field>
+<MDButton Label="Toogle" Class="nueva" Icon="MDIconEnum.favorite" TrailingIcon=" MDIconEnum.favorite" Style="MDButtonStyle.Raised" @onclick="ExitedFab"></MDButton>
+<MDButton Label="Hello world" TrailingIcon="MDIconEnum.favorite" Style="MDButtonStyle.Outlined"></MDButton>
+<MDFab Label="Hola" Style="MDFabStyle.Extended" Exited="@Exited" Icon="MDIconEnum.favorite"></MDFab>
+<MDFab Label="Hola" Style="MDFabStyle.Default" Icon="MDIconEnum.favorite"></MDFab>
+<MDFab Label="Hola" Style="MDFabStyle.Mini" Icon="MDIconEnum.favorite"></MDFab>
 
-    <MDIconButton Icon="MDIconEnum.favorite"></MDIconButton>
-    <MDIconButton Icon="MDIconEnum.favorite" IconOff="MDIconEnum.favorite_border" ToogleOn="@Toogle1" Label="Toogle" @onclick="ClickToogle1"></MDIconButton>
-    <MDIconButton Icon="MDIconEnum.favorite" IconOff="MDIconEnum.favorite_border" ToogleOn="false" Label="Toogle2"></MDIconButton>
+<MDIconButton Icon="MDIconEnum.favorite"></MDIconButton>
+<MDIconButton Icon="MDIconEnum.favorite" IconOff="MDIconEnum.favorite_border" ToogleOn="@Toogle1" Label="Toogle" @onclick="ClickToogle1"></MDIconButton>
+<MDIconButton Icon="MDIconEnum.favorite" IconOff="MDIconEnum.favorite_border" ToogleOn="false" Label="Toogle2"></MDIconButton>
 
-    <MDDataTable Label="Dessert Calories">
-        <MDDataTable_Head>
-            <MDDataTable_Head_Cell Style=" MDDataTable_Head_Cell.MDDataTablerHeaderCellStyle.CheckBox">
-                <MDCheckBox Class="mdc-data-table__header-row-checkbox" Value="true">
-                </MDCheckBox>
-            </MDDataTable_Head_Cell>
-            <MDDataTable_Head_Cell>Status</MDDataTable_Head_Cell>
-            <MDDataTable_Head_Cell>Signal name</MDDataTable_Head_Cell>
-            <MDDataTable_Head_Cell>Severity</MDDataTable_Head_Cell>
-            <MDDataTable_Head_Cell>Stage</MDDataTable_Head_Cell>
-            <MDDataTable_Head_Cell Style=" MDDataTable_Head_Cell.MDDataTablerHeaderCellStyle.Numeric">Time</MDDataTable_Head_Cell>
-            <MDDataTable_Head_Cell>Roles</MDDataTable_Head_Cell>
+<MDDataTable Label="Dessert Calories">
+    <MDDataTable_Head>
+        <MDDataTable_Head_Cell Style=" MDDataTablerHeaderCellStyle.CheckBox">
+            <MDCheckBox Class="mdc-data-table__header-row-checkbox" Value="true">
+            </MDCheckBox>
+        </MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell>Status</MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell>Signal name</MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell>Severity</MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell>Stage</MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell Style=" MDDataTablerHeaderCellStyle.Numeric">Time</MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell>Roles</MDDataTable_Head_Cell>
 
-        </MDDataTable_Head>
-        <MDDataTable_Body>
-            <MDDataTable_Row Id="u0">
-                <MDDataTable_Row_Cell Style=" MDDataTable_Row_Cell.MDDataTablerCellStyle.CheckBox">
-                    <MDDataTable_Row_CheckBox Value="true" LabelledBy="u0">
-                    </MDDataTable_Row_CheckBox>
-                </MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Online</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell Id="u0">Arcus watch slowdown</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Medium</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Triaged</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell Style=" MDDataTable_Row_Cell.MDDataTablerCellStyle.Numeric">0:33</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Allison Brie</MDDataTable_Row_Cell>
-            </MDDataTable_Row>
-            <MDDataTable_Row Id="u1">
-                <MDDataTable_Row_Cell Style=" MDDataTable_Row_Cell.MDDataTablerCellStyle.CheckBox">
-                    <MDDataTable_Row_CheckBox Value="true" LabelledBy="u1">
-                    </MDDataTable_Row_CheckBox>
-                </MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Online</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell Id="u1">Arcus watch slowdown</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Medium</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Triaged</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell Style=" MDDataTable_Row_Cell.MDDataTablerCellStyle.Numeric">0:33</MDDataTable_Row_Cell>
-                <MDDataTable_Row_Cell>Allison Brie</MDDataTable_Row_Cell>
-            </MDDataTable_Row>
-        </MDDataTable_Body>
-    </MDDataTable>
+    </MDDataTable_Head>
+    <MDDataTable_Body>
+        <MDDataTable_Row Id="u0">
+            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.CheckBox">
+                <MDDataTable_Row_CheckBox Value="true" LabelledBy="u0">
+                </MDDataTable_Row_CheckBox>
+            </MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Online</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell Id="u0">Arcus watch slowdown</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Medium</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Triaged</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.Numeric">0:33</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Allison Brie</MDDataTable_Row_Cell>
+        </MDDataTable_Row>
+        <MDDataTable_Row Id="u1">
+            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.CheckBox">
+                <MDDataTable_Row_CheckBox Value="true" LabelledBy="u1">
+                </MDDataTable_Row_CheckBox>
+            </MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Online</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell Id="u1">Arcus watch slowdown</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Medium</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Triaged</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.Numeric">0:33</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell>Allison Brie</MDDataTable_Row_Cell>
+        </MDDataTable_Row>
+    </MDDataTable_Body>
+</MDDataTable>
 
-    <MDChipSet>
-        <MDChip Text="One" />
-        <MDChip Text="Two" Icon="MDIconEnum.format_color_fill" TrailingIcon="MDIconEnum.cancel" />
-    </MDChipSet>
-    <MDChipSet Mode=" MDChipSet.MDChipSetMode.Choose">
-        <MDChip Text="One" InitialSelected="true" Touch="true" />
-        <MDChip Text="Two" Icon="MDIconEnum.format_color_text" Touch="true" />
-    </MDChipSet>
-    <MDChipSet Mode=" MDChipSet.MDChipSetMode.Filter">
-        <MDChip Text="One" InitialSelected="true" />
-        <MDChip Text="Two" InitialSelected="false" Icon="MDIconEnum.favorite" />
-    </MDChipSet>
-    <MDChipSet Mode=" MDChipSet.MDChipSetMode.Input">
-        <MDChip Text="One" />
-        <MDChip Text="Two" Icon="MDIconEnum.favorite" TrailingIcon="MDIconEnum.cancel" />
-    </MDChipSet>
+<MDChipSet>
+    <MDChip Text="One" />
+    <MDChip Text="Two" Icon="MDIconEnum.format_color_fill" TrailingIcon="MDIconEnum.cancel" />
+</MDChipSet>
+<MDChipSet Mode=" MDChipSetMode.Choose">
+    <MDChip Text="One" InitialSelected="true" Touch="true" />
+    <MDChip Text="Two" Icon="MDIconEnum.format_color_text" Touch="true" />
+</MDChipSet>
+<MDChipSet Mode=" MDChipSetMode.Filter">
+    <MDChip Text="One" InitialSelected="true" />
+    <MDChip Text="Two" InitialSelected="false" Icon="MDIconEnum.favorite" />
+</MDChipSet>
+<MDChipSet Mode=" MDChipSetMode.Input">
+    <MDChip Text="One" />
+    <MDChip Text="Two" Icon="MDIconEnum.favorite" TrailingIcon="MDIconEnum.cancel" />
+</MDChipSet>
 
-    <div class="w-25">
-        <MDCard Style=" MDCard.MDCardStyle.Outlined">
-            <MDCard_PrimaryAction>
-                <MDCard_PrimaryAction_Media Style="MDCard_PrimaryAction_Media.MDCardMediaStyle.Square"
-                                            BackgroundImage="https://www.carbonbrief.org/wp-content/uploads/2019/09/Blue-green-sea-surface-background-with-fishes-full-frame-composition-DWGX61-1550x804.jpg">
-                    <MDCard_PrimaryAction_Media_Content></MDCard_PrimaryAction_Media_Content>
-                </MDCard_PrimaryAction_Media>
-                <div class="demo-card__primary block px-1">
-                    <h2 class="demo-card__title mdc-typography--headline6">Our Changing Planet</h2>
-                    <h3 class="demo-card__subtitle mdc-typography--subtitle2">by Kurt Wagner</h3>
-                </div>
-            </MDCard_PrimaryAction>
-            <MDCard_Actions>
-                <MDCard_Actions_Buttons>
-                    <MDCard_Actions_Buttons_Button Label="Action 1">
-                    </MDCard_Actions_Buttons_Button>
-                    <MDCard_Actions_Buttons_Button Label="Action 2">
-                    </MDCard_Actions_Buttons_Button>
-                </MDCard_Actions_Buttons>
-                <MDCard_Actions_Icons>
-                    <MDCard_Actions_Icons_Icon Title="Share" Icon="MDIconEnum.share"></MDCard_Actions_Icons_Icon>
-                    <MDCard_Actions_Icons_Icon Title="More Options" Icon="MDIconEnum.more_vert"></MDCard_Actions_Icons_Icon>
-                </MDCard_Actions_Icons>
-            </MDCard_Actions>
-        </MDCard>
+<div class="w-25">
+    <MDCard Style=" MDCardStyle.Outlined">
+        <MDCard_PrimaryAction>
+            <MDCard_PrimaryAction_Media Style="MDCardMediaStyle.Square"
+                                        BackgroundImage="https://www.carbonbrief.org/wp-content/uploads/2019/09/Blue-green-sea-surface-background-with-fishes-full-frame-composition-DWGX61-1550x804.jpg">
+                <MDCard_PrimaryAction_Media_Content></MDCard_PrimaryAction_Media_Content>
+            </MDCard_PrimaryAction_Media>
+            <div class="demo-card__primary block px-1">
+                <MDTypo Tag="MDTypoAs.h2" Style="MDTypoStyle.HeadLine6" Class="demo-card__title">Our Changing Planet</MDTypo>
+                <MDTypo Tag="MDTypoAs.h3" Style="MDTypoStyle.Subtitle2" Class="demo-card__subtitle">by Kurt Wagner</MDTypo>
+            </div>
+        </MDCard_PrimaryAction>
+        <MDCard_Actions>
+            <MDCard_Actions_Buttons>
+                <MDCard_Actions_Buttons_Button Label="Action 1">
+                </MDCard_Actions_Buttons_Button>
+                <MDCard_Actions_Buttons_Button Label="Action 2">
+                </MDCard_Actions_Buttons_Button>
+            </MDCard_Actions_Buttons>
+            <MDCard_Actions_Icons>
+                <MDCard_Actions_Icons_Icon Title="Share" Icon="MDIconEnum.share"></MDCard_Actions_Icons_Icon>
+                <MDCard_Actions_Icons_Icon Title="More Options" Icon="MDIconEnum.more_vert"></MDCard_Actions_Icons_Icon>
+            </MDCard_Actions_Icons>
+        </MDCard_Actions>
+    </MDCard>
 
-    </div>
+</div>
 
 
 
@@ -168,6 +180,12 @@
     private void OpenDialog(bool value)
     {
         Console.WriteLine("opendialog");
+        DialogIsOpen = value;
+        StateHasChanged();
+    }
+
+    private void OnDialogOpenChange(bool value)
+    {
         DialogIsOpen = value;
         StateHasChanged();
     }

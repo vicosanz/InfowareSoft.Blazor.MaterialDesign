@@ -24,17 +24,4 @@
             await JsInvokeAsync<object>("mdcjs.mdChipSet.init", Ref);
         }
     }
-
-    public enum MDChipSetMode
-    {
-        [Html]
-        Default,
-        [Html("mdc-chip-set--choice")]
-        Choose,
-        [Html("mdc-chip-set--filter")]
-        Filter,
-        [Html("mdc-chip-set--input")]
-        Input
-    }
-
 }

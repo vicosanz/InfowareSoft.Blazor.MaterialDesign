@@ -25,10 +25,10 @@ export function isOpen(ref, open) {
 
 export function setCanBeClosed(ref, canClose) {
     if (canClose) {
-        ref.matBlazorRef.escapeKeyAction = "close";
-        ref.matBlazorRef.scrimClickAction = "close";
+        ref.instance.escapeKeyAction = "close";
+        ref.instance.scrimClickAction = "close";
     } else {
-        ref.matBlazorRef.escapeKeyAction = "";
-        ref.matBlazorRef.scrimClickAction = "";
+        ref.instance.escapeKeyAction = "";
+        ref.instance.scrimClickAction = "";
     }
 }

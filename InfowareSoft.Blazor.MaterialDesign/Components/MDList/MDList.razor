@@ -2,10 +2,11 @@
 @inherits MDListBase
 
 <CascadingValue Value=this Name="MDList">
-    <ul class="@ClassMapper.Class" role="@Role.GetName()" @ref="Ref" @attributes="@Attributes">
+    <As Tag="@Tag.GetName()" Class="@ClassMapper.Class" role="@Role.GetName()" @attributes="@Attributes" @bind-ElementRef="Ref" >
         @ChildContent
-    </ul>
+    </As>
 </CascadingValue>
 
 @code {
+    
 }

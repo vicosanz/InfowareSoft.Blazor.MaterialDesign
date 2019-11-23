@@ -2,7 +2,7 @@
 @inherits MDListItemBase
 
 <CascadingValue Value=this Name="MDListItem">
-    <li class="@ClassMapper.Class" role=@ClassMapperRole.Class tabindex="@TabIndex" @ref="Ref" @attributes="@Attributes"
+    <As Tag="@Tag.GetName()" class="@ClassMapper.Class" role="@ClassMapperRole.Class" tabindex="@TabIndex" @bind-ElementRef="Ref" @attributes="@Attributes"
         aria-checked="false">
         @if (Icon.HasValue)
         {
@@ -41,7 +41,7 @@
             <label class="mdc-list-item__text" for="@Id">@Text</label>
         }
         @ChildContent
-    </li>
+    </As>
 </CascadingValue>
 
 @code {

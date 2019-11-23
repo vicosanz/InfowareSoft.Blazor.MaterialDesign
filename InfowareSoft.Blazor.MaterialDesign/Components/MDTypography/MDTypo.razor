@@ -1,0 +1,15 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<As Tag="@Tag.GetName()" Class="@ClassMapper.Class">@ChildContent</As>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Style(() => Style.GetName());
+    }
+
+    [Parameter] public MDTypoAs Tag { get; set; } = MDTypoAs.h1;
+    [Parameter] public MDTypoStyle Style { get; set; } = MDTypoStyle.HeadLine1;
+}

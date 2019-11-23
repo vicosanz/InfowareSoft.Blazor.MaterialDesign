@@ -21,6 +21,15 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
 
             if (List != null)
             {
+                if (List.Tag == MDListAs.ul)
+                {
+                    Tag = MDListItemAs.li;
+                }
+                if (List.Tag == MDListAs.nav)
+                {
+                    Tag = MDListItemAs.a;
+                }
+
                 Name = List.Name;
                 if (!List.ListItems.Any())
                 {
@@ -29,14 +38,14 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
                 List.ListItems.Add(this);
             }
         }
-
-        protected bool IsListBox() => List?.Role == MDListBase.MDListRole.ListBox;
-        protected bool IsRadio() => List?.Role == MDListBase.MDListRole.RadioGroup;
-        protected bool IsCheckBox() => List?.Role == MDListBase.MDListRole.CheckBox;
+        protected MDListItemAs Tag { get; set; } = MDListItemAs.li;
+        protected bool IsListBox() => List?.Role == MDListRole.ListBox;
+        protected bool IsRadio() => List?.Role == MDListRole.RadioGroup;
+        protected bool IsCheckBox() => List?.Role == MDListRole.CheckBox;
 
         protected bool IsTwoLine()
         {
-            return List?.Style ==  MDListBase.MDListStyle.TwoLine;
+            return List?.Style ==  MDListStyle.TwoLine;
         }
 
         [CascadingParameter(Name = "MDList")] public MDList List { get; set; }

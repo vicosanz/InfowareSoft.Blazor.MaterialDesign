@@ -54,6 +54,6 @@
 
     [Parameter] public bool InitialSelected { get; set; }
 
-    private bool IsFilter => ContainerChipSet != null && ContainerChipSet.Mode == MDChipSet.MDChipSetMode.Filter;
+    private bool IsFilter => ContainerChipSet != null && ContainerChipSet.Mode == MDChipSetMode.Filter;
     private string Role => IsFilter ? "checkbox" : "button";
 }

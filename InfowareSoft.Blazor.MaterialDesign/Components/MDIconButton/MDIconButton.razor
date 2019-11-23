@@ -1,4 +1,5 @@
-﻿@inherits DOMComponent
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
 
 <button class="@ClassMapper.Class"
         aria-label="@Label" aria-hidden="true" aria-pressed="false"
@@ -40,19 +41,21 @@
     [Parameter] public MDIconEnum? IconOff { get; set; }
     [Parameter] public bool Disabled { get; set; }
 
-    [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
+    [Parameter] public EventCallback<MouseEventArgs>
+    OnClick { get; set; }
 
     protected void OnClickHandler(MouseEventArgs ev)
     {
-        OnClick.InvokeAsync(ev);
+    OnClick.InvokeAsync(ev);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender)
-        {
-            await JsInvokeAsync<object>("mdcjs.mdIconButton.init", Ref);
+    if (firstRender)
+    {
+    await JsInvokeAsync<object>
+        ("mdcjs.mdIconButton.init", Ref);
         }
-    }
+        }
 
-}
+        }

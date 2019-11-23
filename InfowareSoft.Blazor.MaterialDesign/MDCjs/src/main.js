@@ -12,6 +12,8 @@ import * as mdRadio from './mdRadio/mdRadio';
 import * as mdDataTable from './mdDataTable/mdDataTable';
 import * as mdDialog from './mdDialog/mdDialog';
 import * as mdList from './mdList/mdList';
+import * as mdDrawer from './mdDrawer/mdDrawer';
+import * as mdElevation from './mdElevation/mdElevation';
 
 window.mdcjs = {
     mdTypography,
@@ -25,7 +27,9 @@ window.mdcjs = {
     mdDataTable,
     mdDialog,
     mdList,
-    mdRadio
+    mdRadio,
+    mdDrawer,
+    mdElevation
 };
 
 

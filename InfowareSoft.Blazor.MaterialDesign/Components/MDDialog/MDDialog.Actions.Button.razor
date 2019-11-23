@@ -1,7 +1,7 @@
 ﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
 @inherits DOMComponent
 
-<MDButton class="@ClassMapper.Class" Label="@Label" OnClick="@OnClickHandler" DialogAction="@DialogAction" @attributes="@Attributes">
+<MDButton class="@ClassMapper.Class" Label="@Label" OnClick="@OnClickHandler" DialogAction="@DialogAction" @attributes="@Attributes" data-mdc-dialog-button-default="@IsDefault">
     @ChildContent
 </MDButton>
 
@@ -14,6 +14,7 @@
 
     [Parameter] public string Label { get; set; }
     [Parameter] public string DialogAction { get; set; }
+    [Parameter] public bool IsDefault { get; set; }
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
 
     protected void OnClickHandler(MouseEventArgs ev)
