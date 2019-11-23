@@ -1,12 +1,27 @@
 ﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
 @inherits DOMComponent
 
-<li role="separator" class="@ClassMapper.Class" @attributes="@Attributes"></li>
+<As Tag="@Tag.GetName()" Class="@ClassMapper.Class" role="@Tag.GetName2()" @attributes="@Attributes" @bind-ElementRef="Ref"></As>
 
 @code {
     protected override void OnInitialized()
     {
         base.OnInitialized();
         ClassMapper.Base("mdc-list-divider");
+
+        if (List != null)
+        {
+            if (List.Tag == MDListAs.ul)
+            {
+                Tag = MDListItemDividerAs.li;
+            }
+            if (List.Tag == MDListAs.nav)
+            {
+                Tag = MDListItemDividerAs.hr;
+            }
+        }
     }
+
+    protected MDListItemDividerAs Tag { get; set; } = MDListItemDividerAs.li;
+    [CascadingParameter(Name = "MDList")] public MDList List { get; set; }
 }

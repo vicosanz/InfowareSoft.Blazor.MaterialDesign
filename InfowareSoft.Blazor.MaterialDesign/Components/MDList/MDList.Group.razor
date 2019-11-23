@@ -1,10 +1,38 @@
 ﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
 @inherits MDListGroupBase
 
-<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
-    <h3 class="mdc-list-group__subheader">@SubHeader</h3>
+@if (Simplified)
+{
+    <As Tag="@Tag.GetName()" Class="mdc-list-group__subheader">@SubHeader</As>
     @ChildContent
-</div>
+}
+else
+{
+    <div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+        <As Tag="@Tag.GetName()" Class="mdc-list-group__subheader">@SubHeader</As>
+        @ChildContent
+    </div>
+}
 
 @code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if (List != null)
+        {
+            if (List.Tag == MDListAs.ul)
+            {
+                Simplified = false;
+            }
+            if (List.Tag == MDListAs.nav)
+            {
+                Simplified = true;
+            }
+        }
+    }
+
+    [CascadingParameter(Name = "MDList")] public MDList List { get; set; }
+    [Parameter] public MDListGroupAs Tag { get; set; } = MDListGroupAs.h3;
+    protected bool Simplified { get; set; } = false;
 }

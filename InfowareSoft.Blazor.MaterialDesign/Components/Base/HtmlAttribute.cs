@@ -6,12 +6,14 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components.Base
 {
     public class HtmlAttribute : Attribute
     {
-        public HtmlAttribute(string name = null)
+        public HtmlAttribute(string name = null, string name2 = null)
         {
             Name = name;
+            Name2 = name2;
         }
 
         public string Name { get; }
+        public string Name2 { get; }
     }
 
     public static class HtmlAttributeHelper
@@ -19,6 +21,11 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components.Base
         public static string GetName<T>(this T enumValue) where T : struct
         {
             return enumValue.GetTypeName()?.Name;
+        }
+
+        public static string GetName2<T>(this T enumValue) where T : struct
+        {
+            return enumValue.GetTypeName()?.Name2;
         }
 
         public static HtmlAttribute GetTypeName<T>(this T enumValue) where T : struct
