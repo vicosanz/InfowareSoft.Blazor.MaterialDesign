@@ -7,9 +7,9 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-data-table__header-cell").
-            Style(() => Style.GetName());
+        ClassMapper.Add("mdc-data-table__header-cell")
+            .Variant(() => Variant.GetName());
     }
 
-    [Parameter] public MDDataTablerHeaderCellStyle Style { get; set; } = MDDataTablerHeaderCellStyle.Default;
+    [Parameter] public MDDataTablerHeaderCellVariant Variant { get; set; } = MDDataTablerHeaderCellVariant.Default;
 }

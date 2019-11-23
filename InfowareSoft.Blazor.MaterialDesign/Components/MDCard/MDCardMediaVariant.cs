@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDCardMediaStyle
+    public enum MDCardMediaVariant
     {
         [Html]
         Default,

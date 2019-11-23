@@ -12,7 +12,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-checkbox")
+            ClassMapper.Add("mdc-checkbox")
                 .If(() => Disabled, "mdc-checkbox--disabled")
                 .If(() => TouchWrapper != null, "mdc-checkbox--touch");
         }

@@ -1,0 +1,21 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<CascadingValue Value=this Name="MDImageList">
+    <ul class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+        @ChildContent
+    </ul>
+</CascadingValue>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Add("mdc-image-list")
+            .Variant(() => Variant.GetName())
+            .Variant(() => Columns.GetName());
+    }
+
+    [Parameter] public MDImageListVariant Variant { get; set; } = MDImageListVariant.Default;
+    [Parameter] public MDImageListColumns Columns { get; set; } = MDImageListColumns.Col3;
+}

@@ -12,7 +12,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-radio")
+            ClassMapper.Add("mdc-radio")
                 .If(() => Disabled, "mdc-radio--disabled")
                 .If(() => TouchWrapper != null, "mdc-radio--touch");
         }

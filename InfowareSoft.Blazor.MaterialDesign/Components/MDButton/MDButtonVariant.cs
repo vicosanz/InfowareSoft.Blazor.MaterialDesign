@@ -2,7 +2,7 @@
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDButtonStyle
+    public enum MDButtonVariant
     {
         [Html]
         Default,

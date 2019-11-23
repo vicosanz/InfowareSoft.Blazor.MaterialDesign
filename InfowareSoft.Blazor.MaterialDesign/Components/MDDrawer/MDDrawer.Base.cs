@@ -12,9 +12,9 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-drawer")
-                .Style(() => Style.GetName());
+            ClassMapper.Add("mdc-drawer")
+                .Variant(() => Variant.GetName());
         }
-        [Parameter] public MDDrawerStyle Style { get; set; } = MDDrawerStyle.Default;
+        [Parameter] public MDDrawerVariant Variant { get; set; } = MDDrawerVariant.Default;
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDTypoStyle
+    public enum MDTypoVariant
     {
         [Html("mdc-typography--headline1")]
         HeadLine1,

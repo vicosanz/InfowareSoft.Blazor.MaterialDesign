@@ -5,13 +5,13 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDFabStyle
+    public enum MDDrawerVariant
     {
         [Html]
         Default,
-        [Html("mdc-fab--mini")]
-        Mini,
-        [Html("mdc-fab--extended")]
-        Extended
+        [Html("mdc-drawer--dismissible")]
+        Dismisable,
+        [Html("mdc-drawer--modal")]
+        Modal,
     }
 }

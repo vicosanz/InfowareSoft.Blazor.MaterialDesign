@@ -8,10 +8,10 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Style(()=> Style.GetName());
+        ClassMapper.Variant(()=> Variant.GetName());
     }
 
     [Parameter] public MDIconEnum Icon { get; set; }
-    [Parameter] public MDIconStyle Style { get; set; } = MDIconStyle.Default;
+    [Parameter] public MDIconVariant Variant { get; set; } = MDIconVariant.Default;
 
 }

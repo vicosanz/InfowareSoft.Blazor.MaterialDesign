@@ -41,7 +41,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-chip")
+        ClassMapper.Add("mdc-chip")
             .If(() => TouchWrapper != null, "mdc-chip--touch")
             .If(() => InitialSelected, "mdc-chip--selected");
     }

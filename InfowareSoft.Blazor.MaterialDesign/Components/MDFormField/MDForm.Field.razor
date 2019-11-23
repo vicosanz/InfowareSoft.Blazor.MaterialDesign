@@ -11,9 +11,9 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-form-field")
-            .Style(() => Style.GetName());
+        ClassMapper.Add("mdc-form-field")
+            .Variant(() => Variant.GetName());
     }
 
-    [Parameter] public MDFormFieldStyle Style { get; set; } = MDFormFieldStyle.Default;
+    [Parameter] public MDFormFieldVariant Variant { get; set; } = MDFormFieldVariant.Default;
 }

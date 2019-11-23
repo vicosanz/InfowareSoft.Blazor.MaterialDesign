@@ -1,0 +1,54 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<li class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    @if (Simplified)
+    {
+        @if (@ImgSrc != null)
+        {
+            <img class="mdc-image-list__image" src="@ImgSrc" alt="@ImgAlt">
+        }
+        @ChildContent
+    }
+    else
+    {
+        <div class="mdc-image-list__image-aspect-container">
+            @if (@ImgSrc != null)
+            {
+                <img class="mdc-image-list__image" src="@ImgSrc" alt="@ImgAlt">
+            }
+            @ChildContent
+        </div>
+    }
+    <div class="mdc-image-list__supporting">
+        <span class="mdc-image-list__label">@Text</span>
+    </div>
+</li>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Add("mdc-image-list__item");
+
+        if (List != null)
+        {
+            if (List.Variant == MDImageListVariant.Default)
+            {
+                Simplified = false;
+            }
+            if (List.Variant == MDImageListVariant.Masonry)
+            {
+                Simplified = true;
+            }
+        }
+
+    }
+
+    [CascadingParameter(Name = "MDImageList")] public MDImageList List { get; set; }
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string ImgSrc { get; set; }
+    [Parameter] public string ImgAlt { get; set; }
+    [Parameter] public MDImageListVariant Variant { get; set; } = MDImageListVariant.Default;
+    protected bool Simplified { get; set; }
+}

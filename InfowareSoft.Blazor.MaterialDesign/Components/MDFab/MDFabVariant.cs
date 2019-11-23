@@ -5,11 +5,13 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDListStyle
+    public enum MDFabVariant
     {
         [Html]
         Default,
-        [Html("mdc-list--two-line")]
-        TwoLine
+        [Html("mdc-fab--mini")]
+        Mini,
+        [Html("mdc-fab--extended")]
+        Extended
     }
 }

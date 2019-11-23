@@ -13,12 +13,12 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-list")
-                .Style(() => Style.GetName());
+            ClassMapper.Add("mdc-list")
+                .Variant(() => Variant.GetName());
         }
 
         [Parameter] public string Name { get; set; } = "Name" + Guid.NewGuid().ToString();
-        [Parameter] public MDListStyle Style { get; set; } = MDListStyle.Default;
+        [Parameter] public MDListVariant Variant { get; set; } = MDListVariant.Default;
         [Parameter] public MDListRole Role { get; set; } = MDListRole.ListBox;
         [Parameter] public MDListAs Tag { get; set; } = MDListAs.ul;
 

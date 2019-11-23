@@ -5,11 +5,11 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDCardStyle
+    public enum MDDrawerHeaderTitleVariant
     {
-        [Html]
-        Default,
-        [Html("mdc-card--outlined")]
-        Outlined
+        [Html("mdc-drawer__title")]
+        Title,
+        [Html("mdc-drawer__subtitle")]
+        SubTitle
     }
 }

@@ -5,13 +5,13 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDDataTablerHeaderCellStyle
+    public enum MDDataTablerCellVariant
     {
         [Html]
         Default,
-        [Html("mdc-data-table__header-cell--checkbox")]
+        [Html("mdc-data-table__cell--checkbox")]
         CheckBox,
-        [Html("mdc-data-table__header-cell--numeric")]
+        [Html("mdc-data-table__cell--numeric")]
         Numeric,
     }
 }

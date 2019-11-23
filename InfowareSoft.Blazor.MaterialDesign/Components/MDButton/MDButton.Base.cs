@@ -13,8 +13,8 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-button")
-                .Style(() => Style.GetName())
+            ClassMapper.Add("mdc-button")
+                .Variant(() => Variant.GetName())
                 .If(() => Disabled, "Disabled");
         }
 
@@ -26,7 +26,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         [Parameter] public bool Disabled { get; set; }
         protected string DisabledCss => Disabled ? "Disabled" : null;
 
-        [Parameter] public MDButtonStyle Style { get; set; } = MDButtonStyle.Default;
+        [Parameter] public MDButtonVariant Variant { get; set; } = MDButtonVariant.Default;
 
         [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
 

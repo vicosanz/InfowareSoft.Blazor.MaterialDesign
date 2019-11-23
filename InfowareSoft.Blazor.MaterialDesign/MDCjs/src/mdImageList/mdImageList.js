@@ -1,0 +1,1 @@
+import './mdImageList.scss';

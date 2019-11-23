@@ -7,9 +7,9 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Style(() => Style.GetName());
+        ClassMapper.Variant(() => Variant.GetName());
     }
 
     [Parameter] public MDTypoAs Tag { get; set; } = MDTypoAs.h1;
-    [Parameter] public MDTypoStyle Style { get; set; } = MDTypoStyle.HeadLine1;
+    [Parameter] public MDTypoVariant Variant { get; set; } = MDTypoVariant.HeadLine1;
 }

@@ -1,14 +1,14 @@
 ﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
 @inherits DOMComponent
 
-<button class="@ClassMapper.Class" @ref="Ref" aria-label="@(Style == MDFabStyle.Extended ? null: Label)" @attributes="@Attributes">
+<button class="@ClassMapper.Class" @ref="Ref" aria-label="@(Variant == MDFabVariant.Extended ? null: Label)" @attributes="@Attributes">
     <div class="mdc-fab__ripple"></div>
     @ChildContent
     @if (Icon.HasValue)
     {
         <MDIcon Class="mdc-fab__icon" aria-hidden="true" Icon="@Icon.Value"></MDIcon>
     }
-    @if (this.Label != null && Style == MDFabStyle.Extended)
+    @if (this.Label != null && Variant == MDFabVariant.Extended)
     {
         <span class="mdc-fab__label">@Label</span>
     }
@@ -18,8 +18,8 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-fab")
-            .Style(() => Style.GetName())
+        ClassMapper.Add("mdc-fab")
+            .Variant(() => Variant.GetName())
             .If(() => Exited, "mdc-fab--exited");
     }
 
@@ -27,7 +27,7 @@
     [Parameter] public MDIconEnum? Icon { get; set; }
     [Parameter] public bool Exited { get; set; }
 
-    [Parameter] public MDFabStyle Style { get; set; } = MDFabStyle.Default;
+    [Parameter] public MDFabVariant Variant { get; set; } = MDFabVariant.Default;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

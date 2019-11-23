@@ -5,13 +5,11 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDDrawerStyle
+    public enum MDFormFieldVariant
     {
         [Html]
         Default,
-        [Html("mdc-drawer--dismissible")]
-        Dismisable,
-        [Html("mdc-drawer--modal")]
-        Modal,
+        [Html("mdc-form-field--align-end")]
+        AlignEnd
     }
 }

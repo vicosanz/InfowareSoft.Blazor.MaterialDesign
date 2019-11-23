@@ -27,7 +27,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-icon-button")
+        ClassMapper.Add("mdc-icon-button")
             .If(() => Disabled, "Disabled")
             .If(() => !ToogleOn.HasValue || CompactSyntax, "material-icons")
             .If(() => ToogleOn.HasValue && ToogleOn.Value, "mdc-icon-button--on");

@@ -9,11 +9,11 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-card")
-            .Style(()=>Style.GetName());
+        ClassMapper.Add("mdc-card")
+            .Variant(() => Variant.GetName());
     }
 
-    [Parameter] public MDCardStyle Style { get; set; } = MDCardStyle.Default;
+    [Parameter] public MDCardVariant Variant { get; set; } = MDCardVariant.Default;
 
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }
 

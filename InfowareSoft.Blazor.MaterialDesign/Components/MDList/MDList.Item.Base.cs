@@ -12,7 +12,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-list-item");
+            ClassMapper.Add("mdc-list-item");
 
             ClassMapperRole
                 .If(() => IsListBox(), "option")
@@ -45,7 +45,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
 
         protected bool IsTwoLine()
         {
-            return List?.Style ==  MDListStyle.TwoLine;
+            return List?.Variant == MDListVariant.TwoLine;
         }
 
         [CascadingParameter(Name = "MDList")] public MDList List { get; set; }

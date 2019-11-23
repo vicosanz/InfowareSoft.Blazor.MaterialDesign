@@ -11,8 +11,8 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-chip-set")
-            .Style(() => Mode.GetName());
+        ClassMapper.Add("mdc-chip-set")
+            .Variant(() => Mode.GetName());
     }
 
     [Parameter] public MDChipSetMode Mode { get; set; } = MDChipSetMode.Default;

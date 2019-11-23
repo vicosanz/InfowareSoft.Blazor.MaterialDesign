@@ -7,10 +7,10 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Style(() => Style.GetName());
+        ClassMapper.Variant(() => Variant.GetName());
     }
 
     [Parameter] public MDDrawerHeaderTitleAs Tag { get; set; } = MDDrawerHeaderTitleAs.h3;
-    [Parameter] public MDDrawerHeaderTitleStyle Style { get; set; } = MDDrawerHeaderTitleStyle.Title;
+    [Parameter] public MDDrawerHeaderTitleVariant Variant { get; set; } = MDDrawerHeaderTitleVariant.Title;
     [Parameter] public string Text { get; set; }
 }

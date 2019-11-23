@@ -4,13 +4,13 @@
 <MDDrawer>
     <MDDrawer_Header>
         <MDDrawer_Header_Title Text="Mail"></MDDrawer_Header_Title>
-        <MDDrawer_Header_Title Style="MDDrawerHeaderTitleStyle.SubTitle" Text="Mail"></MDDrawer_Header_Title>
+        <MDDrawer_Header_Title Variant="MDDrawerHeaderTitleVariant.SubTitle" Text="Mail"></MDDrawer_Header_Title>
     </MDDrawer_Header>
     <MDDrawer_Content>
         <MDList Tag="MDListAs.nav" WrapFocus="true">
             <MDList_Item href="#" aria-current="page" Text="Inbox" Icon=" MDIconEnum.inbox">
             </MDList_Item>
-            <MDList_Item_Divider/>
+            <MDList_Item_Divider />
             <MDList_Item href="#" Text="Outgoing" Icon=" MDIconEnum.send">
             </MDList_Item>
             <MDList_Group SubHeader="Others" Tag=" MDListGroupAs.h6">
@@ -21,22 +21,70 @@
     </MDDrawer_Content>
 </MDDrawer>
 
+<MDImageList Variant="MDImageListVariant.WithTextProtection" style="max-width: 900px;">
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+
+</MDImageList>
+
+<MDImageList Variant="MDImageListVariant.Masonry" Columns=" MDImageListColumns.Col5" style="max-width: 900px;">
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/2x3/6.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/2x3/6.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/2x3/6.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+    <MDImageList_Item ImgSrc="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" ImgAlt="Text label" Text="Text label">
+    </MDImageList_Item>
+
+</MDImageList>
+
 <MDList SelectedIndex="1">
     <MDList_Item Text="Simple item 1"></MDList_Item>
     <MDList_Item Text="Simple item 1"></MDList_Item>
     <MDList_Item Text="Simple item 1"></MDList_Item>
 </MDList>
-<MDList Style=" MDListStyle.TwoLine">
+<MDList Variant=" MDListVariant.TwoLine">
     <MDList_Item Icon=" MDIconEnum.folder" Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Icon=" MDIconEnum.folder" Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Icon=" MDIconEnum.folder" Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
 </MDList>
-<MDList Style=" MDListStyle.Default" Role=" MDListRole.RadioGroup" Name="Var1" SelectedIndex="1">
+<MDList Variant=" MDListVariant.Default" Role=" MDListRole.RadioGroup" Name="Var1" SelectedIndex="1">
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
 </MDList>
-<MDList Style=" MDListStyle.Default" Role="MDListRole.CheckBox" SelectedIndexes="new List<int>() { 1, 2 }.ToArray()">
+<MDList Variant=" MDListVariant.Default" Role="MDListRole.CheckBox" SelectedIndexes="new List<int>() { 1, 2 }.ToArray()">
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
     <MDList_Item Text="Simple item 1" SecondaryText="Line 2"></MDList_Item>
@@ -69,11 +117,11 @@
 <MDForm_Field>
     <MDCheckBox Label="Check here" Id="id5" Value="null"></MDCheckBox>
 </MDForm_Field>
-<MDButton Label="Toogle" Class="nueva" Icon="MDIconEnum.favorite" TrailingIcon=" MDIconEnum.favorite" Style="MDButtonStyle.Raised" @onclick="ExitedFab"></MDButton>
-<MDButton Label="Hello world" TrailingIcon="MDIconEnum.favorite" Style="MDButtonStyle.Outlined"></MDButton>
-<MDFab Label="Hola" Style="MDFabStyle.Extended" Exited="@Exited" Icon="MDIconEnum.favorite"></MDFab>
-<MDFab Label="Hola" Style="MDFabStyle.Default" Icon="MDIconEnum.favorite"></MDFab>
-<MDFab Label="Hola" Style="MDFabStyle.Mini" Icon="MDIconEnum.favorite"></MDFab>
+<MDButton Label="Toogle" Class="nueva" Icon="MDIconEnum.favorite" TrailingIcon=" MDIconEnum.favorite" Variant="MDButtonVariant.Raised" @onclick="ExitedFab"></MDButton>
+<MDButton Label="Hello world" TrailingIcon="MDIconEnum.favorite" Variant="MDButtonVariant.Outlined"></MDButton>
+<MDFab Label="Hola" Variant="MDFabVariant.Extended" Exited="@Exited" Icon="MDIconEnum.favorite"></MDFab>
+<MDFab Label="Hola" Variant="MDFabVariant.Default" Icon="MDIconEnum.favorite"></MDFab>
+<MDFab Label="Hola" Variant="MDFabVariant.Mini" Icon="MDIconEnum.favorite"></MDFab>
 
 <MDIconButton Icon="MDIconEnum.favorite"></MDIconButton>
 <MDIconButton Icon="MDIconEnum.favorite" IconOff="MDIconEnum.favorite_border" ToogleOn="@Toogle1" Label="Toogle" @onclick="ClickToogle1"></MDIconButton>
@@ -81,7 +129,7 @@
 
 <MDDataTable Label="Dessert Calories">
     <MDDataTable_Head>
-        <MDDataTable_Head_Cell Style=" MDDataTablerHeaderCellStyle.CheckBox">
+        <MDDataTable_Head_Cell Variant=" MDDataTablerHeaderCellVariant.CheckBox">
             <MDCheckBox Class="mdc-data-table__header-row-checkbox" Value="true">
             </MDCheckBox>
         </MDDataTable_Head_Cell>
@@ -89,13 +137,13 @@
         <MDDataTable_Head_Cell>Signal name</MDDataTable_Head_Cell>
         <MDDataTable_Head_Cell>Severity</MDDataTable_Head_Cell>
         <MDDataTable_Head_Cell>Stage</MDDataTable_Head_Cell>
-        <MDDataTable_Head_Cell Style=" MDDataTablerHeaderCellStyle.Numeric">Time</MDDataTable_Head_Cell>
+        <MDDataTable_Head_Cell Variant=" MDDataTablerHeaderCellVariant.Numeric">Time</MDDataTable_Head_Cell>
         <MDDataTable_Head_Cell>Roles</MDDataTable_Head_Cell>
 
     </MDDataTable_Head>
     <MDDataTable_Body>
         <MDDataTable_Row Id="u0">
-            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.CheckBox">
+            <MDDataTable_Row_Cell Variant=" MDDataTablerCellVariant.CheckBox">
                 <MDDataTable_Row_CheckBox Value="true" LabelledBy="u0">
                 </MDDataTable_Row_CheckBox>
             </MDDataTable_Row_Cell>
@@ -103,11 +151,11 @@
             <MDDataTable_Row_Cell Id="u0">Arcus watch slowdown</MDDataTable_Row_Cell>
             <MDDataTable_Row_Cell>Medium</MDDataTable_Row_Cell>
             <MDDataTable_Row_Cell>Triaged</MDDataTable_Row_Cell>
-            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.Numeric">0:33</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell Variant=" MDDataTablerCellVariant.Numeric">0:33</MDDataTable_Row_Cell>
             <MDDataTable_Row_Cell>Allison Brie</MDDataTable_Row_Cell>
         </MDDataTable_Row>
         <MDDataTable_Row Id="u1">
-            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.CheckBox">
+            <MDDataTable_Row_Cell Variant=" MDDataTablerCellVariant.CheckBox">
                 <MDDataTable_Row_CheckBox Value="true" LabelledBy="u1">
                 </MDDataTable_Row_CheckBox>
             </MDDataTable_Row_Cell>
@@ -115,7 +163,7 @@
             <MDDataTable_Row_Cell Id="u1">Arcus watch slowdown</MDDataTable_Row_Cell>
             <MDDataTable_Row_Cell>Medium</MDDataTable_Row_Cell>
             <MDDataTable_Row_Cell>Triaged</MDDataTable_Row_Cell>
-            <MDDataTable_Row_Cell Style=" MDDataTablerCellStyle.Numeric">0:33</MDDataTable_Row_Cell>
+            <MDDataTable_Row_Cell Variant=" MDDataTablerCellVariant.Numeric">0:33</MDDataTable_Row_Cell>
             <MDDataTable_Row_Cell>Allison Brie</MDDataTable_Row_Cell>
         </MDDataTable_Row>
     </MDDataTable_Body>
@@ -139,15 +187,15 @@
 </MDChipSet>
 
 <div class="w-25">
-    <MDCard Style=" MDCardStyle.Outlined">
+    <MDCard Variant=" MDCardVariant.Outlined">
         <MDCard_PrimaryAction>
-            <MDCard_PrimaryAction_Media Style="MDCardMediaStyle.Square"
+            <MDCard_PrimaryAction_Media Variant="MDCardMediaVariant.Square"
                                         BackgroundImage="https://www.carbonbrief.org/wp-content/uploads/2019/09/Blue-green-sea-surface-background-with-fishes-full-frame-composition-DWGX61-1550x804.jpg">
                 <MDCard_PrimaryAction_Media_Content></MDCard_PrimaryAction_Media_Content>
             </MDCard_PrimaryAction_Media>
             <div class="demo-card__primary block px-1">
-                <MDTypo Tag="MDTypoAs.h2" Style="MDTypoStyle.HeadLine6" Class="demo-card__title">Our Changing Planet</MDTypo>
-                <MDTypo Tag="MDTypoAs.h3" Style="MDTypoStyle.Subtitle2" Class="demo-card__subtitle">by Kurt Wagner</MDTypo>
+                <MDTypo Tag="MDTypoAs.h2" Variant="MDTypoVariant.HeadLine6" Class="demo-card__title">Our Changing Planet</MDTypo>
+                <MDTypo Tag="MDTypoAs.h3" Variant="MDTypoVariant.Subtitle2" Class="demo-card__subtitle">by Kurt Wagner</MDTypo>
             </div>
         </MDCard_PrimaryAction>
         <MDCard_Actions>

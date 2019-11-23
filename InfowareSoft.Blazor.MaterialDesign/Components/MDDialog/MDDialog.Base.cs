@@ -13,7 +13,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-dialog");
+            ClassMapper.Add("mdc-dialog");
         }
 
         [Parameter] public string Title { get; set; }

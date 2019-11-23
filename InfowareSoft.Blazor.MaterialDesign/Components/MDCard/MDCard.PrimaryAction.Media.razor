@@ -9,11 +9,11 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-card__media")
-            .Style(()=>Style.GetName());
+        ClassMapper.Add("mdc-card__media")
+            .Variant(() => Variant.GetName());
     }
 
-    [Parameter] public MDCardMediaStyle Style { get; set; } = MDCardMediaStyle.Default;
+    [Parameter] public MDCardMediaVariant Variant { get; set; } = MDCardMediaVariant.Default;
     [Parameter] public string BackgroundImage { get; set; }
 
     private string BackgroundImageStyle => $"background-image: url('{BackgroundImage}');";

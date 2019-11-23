@@ -22,7 +22,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components.Base
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base(Class);
+            ClassMapper.Add(Class);
         }
     }
 }

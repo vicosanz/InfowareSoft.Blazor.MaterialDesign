@@ -5,13 +5,13 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDDataTablerCellStyle
+    public enum MDImageListVariant
     {
         [Html]
         Default,
-        [Html("mdc-data-table__cell--checkbox")]
-        CheckBox,
-        [Html("mdc-data-table__cell--numeric")]
-        Numeric,
+        [Html("mdc-image-list--masonry")]
+        Masonry,
+        [Html("mdc-image-list--with-text-protection")]
+        WithTextProtection,
     }
 }

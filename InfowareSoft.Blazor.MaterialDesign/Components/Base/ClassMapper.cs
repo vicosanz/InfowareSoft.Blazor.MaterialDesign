@@ -16,12 +16,12 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components.Base
             get => $"{string.Join(" ", _map.Where(x => x.Item1()).Select(y => y.Item2()))}";
         }
 
-        public ClassMapper Base(string value)
+        public ClassMapper Add(string value)
         {
             _map.Add((() => true, () => value));
             return this;
         }
-        public ClassMapper Style(Func<string> value)
+        public ClassMapper Variant(Func<string> value)
         {
             _map.Add((() => true, value));
             return this;

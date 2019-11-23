@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InfowareSoft.Blazor.MaterialDesign.Components
 {
-    public enum MDIconStyle
+    public enum MDIconVariant
     {
         [Html("material-icons")]
         Default,

@@ -9,7 +9,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ClassMapper.Base("mdc-card__primary-action");
+        ClassMapper.Add("mdc-card__primary-action");
     }
 
     [Parameter] public EventCallback<MouseEventArgs> OnClick { get; set; }

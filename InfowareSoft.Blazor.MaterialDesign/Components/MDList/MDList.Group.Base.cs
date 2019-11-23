@@ -11,7 +11,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            ClassMapper.Base("mdc-list-group");
+            ClassMapper.Add("mdc-list-group");
         }
 
         [Parameter] public string SubHeader { get; set; }
