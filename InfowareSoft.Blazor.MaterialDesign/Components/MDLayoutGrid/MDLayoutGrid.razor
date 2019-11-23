@@ -1,0 +1,17 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    @ChildContent
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Add("mdc-layout-grid")
+            .Variant(() => Align.GetName());
+    }
+
+    [Parameter] public MDLayoutGridAlign Align { get; set; } = MDLayoutGridAlign.Default;
+}

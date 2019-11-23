@@ -1,0 +1,42 @@
+﻿@namespace InfowareSoft.Blazor.MaterialDesign.Components
+@inherits DOMComponent
+
+<div class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
+    @ChildContent
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ClassMapper.Add("mdc-layout-grid__cell")
+            .Variant(() => Align.GetName())
+            .Variant(() =>
+            {
+                if (Span > 1)
+                {
+                    string result = $"mdc-layout-grid__cell--span-{Span}";
+                    if (SpanDevice != MDLayoutGridCellSpanDevice.Default)
+                    {
+                        result = $"{result}-{SpanDevice.GetName()}";
+                    }
+                    return result;
+                }
+                return null;
+            })
+            .Variant(() =>
+            {
+                if (Order > 0)
+                {
+                    return $"mdc-layout-grid__cell--order-{Order}";
+                }
+                return null;
+            })
+            ;
+    }
+
+    [Parameter] public MDLayoutGridCellAlign Align { get; set; } = MDLayoutGridCellAlign.Default;
+    [Parameter] public int Span { get; set; } = 1;
+    [Parameter] public MDLayoutGridCellSpanDevice SpanDevice { get; set; } = MDLayoutGridCellSpanDevice.Default;
+    [Parameter] public int Order { get; set; } = 0;
+}
