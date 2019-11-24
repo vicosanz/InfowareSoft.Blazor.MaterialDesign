@@ -16,6 +16,7 @@ import * as mdDrawer from './mdDrawer/mdDrawer';
 import * as mdElevation from './mdElevation/mdElevation';
 import * as mdImageList from './mdImageList/mdImageList';
 import * as mdLayoutGrid from './mdLayoutGrid/mdLayoutGrid';
+import * as mdLinearProgress from './mdLinearProgress/mdLinearProgress';
 
 window.mdcjs = {
     mdTypography,
@@ -33,7 +34,8 @@ window.mdcjs = {
     mdDrawer,
     mdElevation,
     mdImageList,
-    mdLayoutGrid
+    mdLayoutGrid,
+    mdLinearProgress
 };
 
 

@@ -52,7 +52,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
                     mIsEnableEscKey = value;
                     WhenRenderFinished(async () =>
                     {
-                        await JsInvokeAsync<object>("matBlazor.matDialog.setCanBeClosed", Ref, value);
+                        await JsInvokeAsync<object>("mdcjs.mdDialog.setCanBeClosed", Ref, value);
                     });
                 }
             }

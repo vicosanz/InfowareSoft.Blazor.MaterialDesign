@@ -3,7 +3,6 @@ import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 
 export function init(ref) {
-    console.log("a");
     const list = new MDCList(ref);
     ref.instance = list;
     list.listElements.map((listItemEl) => new MDCRipple(listItemEl));
@@ -11,7 +10,6 @@ export function init(ref) {
 }
 
 export function onActionItem(ref, component) {
-    console.log("b");
     ref.addEventListener('MDCList:action', (e) => {
         var result = e.srcElement.instance.foundation_.getSelectedIndex();
         if ("number" == typeof result) {
