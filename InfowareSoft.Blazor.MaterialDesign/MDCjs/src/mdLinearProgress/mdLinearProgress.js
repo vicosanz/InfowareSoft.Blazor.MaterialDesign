@@ -1,4 +1,3 @@
-import './mdLinearProgress.scss';
 import { MDCLinearProgress } from '@material/linear-progress';
 
 export function init(ref) {
@@ -6,9 +5,9 @@ export function init(ref) {
 }
 
 export function setProgress(ref, value) {
-    ref.instance.foundation_.setProgress(value);
+    ref.instance.foundation.setProgress(value);
 }
 
 export function setBuffer(ref, value) {
-    ref.instance.foundation_.setBuffer(value);
+    ref.instance.foundation.setBuffer(value);
 }

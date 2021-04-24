@@ -1,4 +1,3 @@
-import './mdIconButton.scss';
 import { MDCRipple } from '@material/ripple';
 
 export class MDIconButton extends MDCRipple {

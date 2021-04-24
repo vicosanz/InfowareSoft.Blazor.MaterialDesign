@@ -1,4 +1,3 @@
-import * as styles from './mdCheckBox.scss';
 import { init as InitFormField } from '../mdFormField/mdFormField'
 import { MDCCheckbox } from '@material/checkbox';
 

@@ -1,4 +1,3 @@
-import './mdCard.scss';
 import { MDCRipple } from '@material/ripple';
 
 export class MDCardPrimaryAction extends MDCRipple {

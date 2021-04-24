@@ -1,5 +1,4 @@
-import * as styles from './mdChipSet.scss';
-import { MDCChipSet } from '@material/chips';
+import { MDCChipSet } from '@material/chips/deprecated';
 
 
 export function init(ref) {

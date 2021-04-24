@@ -1,4 +1,3 @@
-import * as styles from './mdDialog.scss';
 import { MDCDialog } from '@material/dialog';
 
 export function init(ref) {

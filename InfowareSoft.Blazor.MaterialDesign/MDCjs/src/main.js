@@ -1,5 +1,3 @@
-// global css
-import './theme/theme.scss';
 import * as mdTypography from './mdTypography/mdTypography';
 import * as mdButton from './mdButton/mdButton';
 import * as mdIconButton from './mdIconButton/mdIconButton';

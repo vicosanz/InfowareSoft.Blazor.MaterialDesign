@@ -2,8 +2,10 @@
 @inherits MDLinearProgressBase
 
 <div role="progressbar" class="@ClassMapper.Class" @ref="Ref" @attributes="@Attributes">
-    <div class="mdc-linear-progress__buffering-dots"></div>
-    <div class="mdc-linear-progress__buffer"></div>
+    <div class="mdc-linear-progress__buffer">
+        <div class="mdc-linear-progress__buffer-bar"></div>
+        <div class="mdc-linear-progress__buffer-dots"></div>
+    </div>
     <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
         <span class="mdc-linear-progress__bar-inner"></span>
     </div>
@@ -14,4 +16,5 @@
 </div>
 
 @code {
+    //https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress
 }

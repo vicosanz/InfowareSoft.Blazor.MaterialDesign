@@ -1,4 +1,3 @@
-import * as styles from './mdRadio.scss';
 import { init as InitFormField } from '../mdFormField/mdFormField'
 import { MDCRadio } from '@material/radio';
 

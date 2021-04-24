@@ -1,4 +1,3 @@
-import './mdList.scss';
 import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 
@@ -11,7 +10,7 @@ export function init(ref) {
 
 export function onActionItem(ref, component) {
     ref.addEventListener('MDCList:action', (e) => {
-        var result = e.srcElement.instance.foundation_.getSelectedIndex();
+        var result = e.srcElement.instance.foundation.getSelectedIndex();
         if ("number" == typeof result) {
             result = [result];
         }
@@ -20,7 +19,7 @@ export function onActionItem(ref, component) {
 }
 
 export function setSelectedIndex(ref, index) {
-    ref.instance.foundation_.setSelectedIndex(index);
+    ref.instance.selectedIndex = index;
 }
 
 export function setWrapFocus(ref, state) {

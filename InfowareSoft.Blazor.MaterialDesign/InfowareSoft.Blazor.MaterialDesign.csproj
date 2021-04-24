@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RazorLangVersion>3.0</RazorLangVersion>
-        <MDCjs>MDCjs\</MDCjs>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<MDCjs>.\MDCjs\</MDCjs>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Description>Material Design</Description>
@@ -13,26 +14,18 @@
         <RepositoryUrl>https://github.com/vicosanz/InfowareSoft.Blazor.MaterialDesign</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>blazor blazor-client material-design</PackageTags>
-        <PackageReleaseNotes>Material Design for Web packed in order to use into Blazor Web app</PackageReleaseNotes>
+        <PackageReleaseNotes>Material Design for Web packed in order to use into Blazor Web app
+Upgraded to Material Design 11</PackageReleaseNotes>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="content\dist\mdcjs.js" />
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.14" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.14" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="content\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
-        <EmbeddedResource Include="content\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(Filename)%(Extension)" />
-        <EmbeddedResource Include="content\**" Exclude="**\*.js;**\*.css" LogicalName="blazor:file:%(RecursiveDir)%(Filename)%(Extension)" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="wwwroot\" />
+        <Folder Include="wwwroot\dist\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -41,7 +34,7 @@
         </Content>
     </ItemGroup>
 
-    <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(MDCjs)node_modules') ">
+    <Target Name="DebugEnsureNodeEnv" BeforeTargets="PreBuildEvent">
         <!-- Ensure Node.js is installed -->
         <Exec Command="node --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
@@ -49,6 +42,6 @@
         <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
         <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
         <!--<Exec WorkingDirectory="$(MDCjs)" Command="npm install" />-->
-        <Exec WorkingDirectory="$(MDCjs)" Command="npm run build --prod" />
+        <Exec WorkingDirectory="$(MDCjs)" Command="npm run build-$(Configuration)" />
     </Target>
 </Project>

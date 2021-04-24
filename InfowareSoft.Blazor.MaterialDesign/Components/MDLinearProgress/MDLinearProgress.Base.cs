@@ -52,7 +52,7 @@ namespace InfowareSoft.Blazor.MaterialDesign.Components
         }
 
         private DotNetObjectReference<MDLinearProgressBase> mDotNetObjectRef = null;
-        public DotNetObjectReference<MDLinearProgressBase> DotNetObjectRef => mDotNetObjectRef = mDotNetObjectRef ?? CreateDotNetObjectRef(this);
+        public DotNetObjectReference<MDLinearProgressBase> DotNetObjectRef => mDotNetObjectRef ??= CreateDotNetObjectRef(this);
 
         public override void Dispose()
         {
