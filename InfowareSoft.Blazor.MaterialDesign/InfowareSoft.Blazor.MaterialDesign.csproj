@@ -17,6 +17,8 @@
         <PackageReleaseNotes>Material Design for Web packed in order to use into Blazor Web app
 Upgraded to Material Design 11</PackageReleaseNotes>
         <Version>1.0.1</Version>
+        <Authors>Victor Sanchez</Authors>
+        <Company>Infoware Soluciones</Company>
     </PropertyGroup>
 
     <ItemGroup>
