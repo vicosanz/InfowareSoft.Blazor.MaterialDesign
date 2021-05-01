@@ -47,4 +47,6 @@ Upgraded to Material Design 11</PackageReleaseNotes>
 		<Exec WorkingDirectory="$(MDCjs)" Command="npm install" />
 		<Exec WorkingDirectory="$(MDCjs)" Command="npm run build-$(Configuration)" />
     </Target>
+
+    <ProjectExtensions><VisualStudio><UserProperties mdcjs_4package_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
